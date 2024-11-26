@@ -27,6 +27,9 @@ public class ExpenseService {
         return  list.get(id);
     }
 
+    public void noArgsFunc(){
+        System.out.println("No Args function");
+    }
     public boolean addExpense(Expense expense){
         ExpenseEntity expenseEntity= new ExpenseEntity();
         expenseEntity.setAmount(expense.getAmount());
@@ -57,6 +60,7 @@ public class ExpenseService {
     }
 
     public ExpenseEntity getExpenseById(int id) throws ExpenseNotFound {
+          this.noArgsFunc();
           return  repo.findById(id).orElseThrow(()->new ExpenseNotFound("Product Not available"));
     }
 }
